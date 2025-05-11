@@ -4,7 +4,7 @@ window.inIframe ??= top !== self;
 window.addEventListener("message", function(event) {
     if (event.data === "requestData") {
         event.source.postMessage(window.json, event.origin);
-    } else if (event.data.type === "json" && event.data === "loadJSON") {
+    } else if (event.data.type === "json") {
       try {
         const receivedData = JSON.parse(event.data);
         json = JSON.parse();
