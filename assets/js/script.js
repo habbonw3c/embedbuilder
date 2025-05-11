@@ -5,10 +5,18 @@ window.addEventListener("message", function(event) {
     if (event.data === "requestData") {
         event.source.postMessage(window.json, event.origin);
     } else if (event.data.type === "json") {
+    console.log("Raw event data:", event.data);
+
+        try {
+            console.log("Received JSON string:", event.data.json);
+            let json = JSON.parse(event.data.json);
+            console.log("Parsed JSON:", json);
+        } catch (error) {
+            console.error("Error parsing JSON:", error);
+        }
+        
       try {
-         console.log("event.data.json",event.data.json)
-        json = JSON.parse(event.data.json);
-         console.log("parsed json",json)
+      
         const dataKeys = Object.keys(json);
   
         if (dataKeys.length && !allJsonKeys.some(key => dataKeys.includes(key))) {
