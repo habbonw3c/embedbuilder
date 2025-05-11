@@ -6,7 +6,9 @@ window.addEventListener("message", function(event) {
         event.source.postMessage(window.json, event.origin);
     } else if (event.data.type === "json") {
       try {
+         console.log(event.data.json)
         json = JSON.parse(event.data.json);
+         console.log(json)
         const dataKeys = Object.keys(json);
   
         if (dataKeys.length && !allJsonKeys.some(key => dataKeys.includes(key))) {
