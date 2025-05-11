@@ -16,6 +16,8 @@ window.addEventListener("message", function(event) {
             return error(`'${usedKeys.length == 2 ? usedKeys[0] + "' and '" + usedKeys[usedKeys.length - 1] + "' are invalid keys." : usedKeys[0] + "' is an invalid key."}`);
         }
   
+         console.log(json)
+        buildGui();
         buildEmbed();
       } catch (error) {
           console.error("Invalid JSON received:", error);
