@@ -1482,6 +1482,7 @@ window.embedObjectsProps ??= {
 }
 
 function cleanEmbed(obj, recursing = false) {
+     console.log("Before cleaning:", obj);  
     if (!recursing)
         // Remove all invalid properties from embed object.
         for (const key in obj)
@@ -1513,6 +1514,6 @@ function cleanEmbed(obj, recursing = false) {
             // If object isn't a string, boolean, number, array or object, convert it to string.
             if (!['string', 'boolean', 'number'].includes(typeof val))
                 obj[key] = val.toString();
-
+console.log("After cleaning:", obj); 
     return obj;
 }
