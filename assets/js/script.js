@@ -8,61 +8,7 @@ window.addEventListener("message", function(event) {
       try {
           
           console.log(JSON.parse(event.data.json))
-        window.json = {
-    content: "You can~~not~~ do `this`.```py\nAnd this.\nprint('Hi')```\n*italics* or _italics_     __*underline italics*__\n**bold**     __**underline bold**__\n***bold italics***  __***underline bold italics***__\n__underline__     ~~Strikethrough~~",
-    embed: {
-        title: "Hello ~~people~~ world :wave:",
-        description: "You can use [links](https://discord.com) or emojis :smile: 😎\n```\nAnd also code blocks\n```",
-        color: 0x41f097,
-        timestamp: new Date().toISOString(),
-        url: "https://discord.com",
-        author: {
-            name: "Author name",
-            url: "https://discord.com",
-            icon_url: "https://cdn.discordapp.com/embed/avatars/0.png"
-        },
-        thumbnail: {
-            url: "https://cdn.discordapp.com/embed/avatars/0.png"
-        },
-        image: {
-            url: "https://glitchii.github.io/embedbuilder/assets/media/banner.png"
-        },
-        footer: {
-            text: "Footer text",
-            icon_url: "https://cdn.discordapp.com/embed/avatars/0.png"
-        },
-        fields: [
-            {
-                name: "Field 1, *lorem* **ipsum**, ~~dolor~~",
-                value: "Field value"
-            },
-            {
-                name: "Field 2",
-                value: "You can use custom emojis <:Kekwlaugh:722088222766923847>. <:GangstaBlob:742256196295065661>",
-                inline: false
-            },
-            {
-                name: "Inline field",
-                value: "Fields can be inline",
-                inline: true
-            },
-            {
-                name: "Inline field",
-                value: "*Lorem ipsum*",
-                inline: true
-            },
-            {
-                name: "Inline field",
-                value: "value",
-                inline: true
-            },
-            {
-                name: "Another field",
-                value: "> Nope, didn't forget about this",
-                inline: false
-            }
-        ]
-    }};
+        window.json = {"embeds":[{"description":"Showing last 20 logs as of {DATE(NOW) format=\"yyyy/MM/dd HH:mm:ss\"}\n\n{FOR 'Pay History'!A6:E25 AS log}**{log[2]}** <t:{DATE({log[4]}) format=\"unix\"}:R>\n-# Trans#{log[0]} {log[1]} <:credit:1367047522329169951> {log[3]}\n\n{/FOR:log}","color":16172079,"title":"Message with Google Sheets data","author":{"name":"Pay History Logs","icon_url":"https://habbo-ss.github.io/sscheduler/images/cropped-ss-logo.png"}}]};
       } catch (error) {
           console.error("Invalid JSON received:", error);
       }
