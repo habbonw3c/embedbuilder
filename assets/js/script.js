@@ -1453,7 +1453,8 @@ Object.defineProperty(window, 'json', {
     },
 
     // Setter for 'json' which formats the value properly into 'jsonObject'.
-    set(val) {
+    set(val) {    console.log("Setter called with:", val);
+
         // Filter out items which are not objects and not empty objects.
         const embedObjects = val.embeds?.filter(j => j.constructor === Object && 0 in Object.keys(j));
         // Convert 'embed' to 'embeds' and delete 'embed' or validate and use 'embeds' if provided.
