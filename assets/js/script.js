@@ -6,9 +6,9 @@ window.addEventListener("message", function(event) {
         event.source.postMessage(window.json, event.origin);
     } else if (event.data.type === "json") {
       try {
-         console.log(event.data.json)
+         console.log("event.data.json",event.data.json)
         json = JSON.parse(event.data.json);
-         console.log(json)
+         console.log("parsed json",json)
         const dataKeys = Object.keys(json);
   
         if (dataKeys.length && !allJsonKeys.some(key => dataKeys.includes(key))) {
@@ -18,7 +18,7 @@ window.addEventListener("message", function(event) {
             return error(`'${usedKeys.length == 2 ? usedKeys[0] + "' and '" + usedKeys[usedKeys.length - 1] + "' are invalid keys." : usedKeys[0] + "' is an invalid key."}`);
         }
   
-         console.log(json)
+         console.log("json after datakeys",json)
         buildGui();
         buildEmbed();
       } catch (error) {
