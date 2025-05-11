@@ -5,19 +5,9 @@ window.addEventListener("message", function(event) {
     if (event.data === "requestData") {
         event.source.postMessage(window.json, event.origin);
     } else if (event.data.type === "json") {
-    console.log("Raw event data:", event.data);
-
-        try {
-            console.log("Received JSON string:", event.data.json);
-            let json = JSON.parse(event.data.json);
-            console.log("Parsed JSON:", json);
-        } catch (error) {
-            console.error("Error parsing JSON:", error);
-        }
-        
       try {
-      
-        const dataKeys = Object.keys(json);
+        window.json = JSON.parse(event.data.json);
+        const dataKeys = Object.keys(window.json);
   
         if (dataKeys.length && !allJsonKeys.some(key => dataKeys.includes(key))) {
             const usedKeys = dataKeys.filter(key => !allJsonKeys.includes(key));
@@ -26,7 +16,7 @@ window.addEventListener("message", function(event) {
             return error(`'${usedKeys.length == 2 ? usedKeys[0] + "' and '" + usedKeys[usedKeys.length - 1] + "' are invalid keys." : usedKeys[0] + "' is an invalid key."}`);
         }
   
-         console.log("json after datakeys",json)
+         console.log("json after datakeys",window.json)
         buildGui();
         buildEmbed();
       } catch (error) {
