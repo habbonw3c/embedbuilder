@@ -8,8 +8,9 @@ window.addEventListener("message", function(event) {
       try {
           
           console.log(event.data.json)
-        window.json = JSON.parse(event.data.json);
-          console.log(window.json)
+        jsonObject = JSON.parse(event.data.json);
+          buildEmbed();
+        buildGui();
       } catch (error) {
           console.error("Invalid JSON received:", error);
       }
