@@ -7,7 +7,7 @@ window.addEventListener("message", function(event) {
     } else if (event.data.type === "json") {
       try {
           
-          console.log(event.data.json)
+          console.log(JSON.parse(event.data.json))
         window.json = {
     content: "You can~~not~~ do `this`.```py\nAnd this.\nprint('Hi')```\n*italics* or _italics_     __*underline italics*__\n**bold**     __**underline bold**__\n***bold italics***  __***underline bold italics***__\n__underline__     ~~Strikethrough~~",
     embed: {
