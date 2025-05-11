@@ -9,20 +9,7 @@ window.addEventListener("message", function(event) {
           
           console.log(event.data.json)
         window.json = JSON.parse(event.data.json);
-          
           console.log(window.json)
-        const dataKeys = Object.keys(window.json);
-  
-        if (dataKeys.length && !allJsonKeys.some(key => dataKeys.includes(key))) {
-            const usedKeys = dataKeys.filter(key => !allJsonKeys.includes(key));
-            if (usedKeys.length > 2)
-                return error(`'${usedKeys[0] + "', '" + usedKeys.slice(1, usedKeys.length - 1).join("', '")}', and '${usedKeys[usedKeys.length - 1]}' are invalid keys.`);
-            return error(`'${usedKeys.length == 2 ? usedKeys[0] + "' and '" + usedKeys[usedKeys.length - 1] + "' are invalid keys." : usedKeys[0] + "' is an invalid key."}`);
-        }
-  
-         console.log("json after datakeys",window.json)
-        buildGui();
-        buildEmbed();
       } catch (error) {
           console.error("Invalid JSON received:", error);
       }
@@ -1478,7 +1465,8 @@ Object.defineProperty(window, 'json', {
             ...(content && { content }),
             embeds: embeds.map(cleanEmbed),
         };
-
+console.log("Updated jsonObject:", jsonObject); // Check if jsonObject is correctly updated
+        
         buildEmbed();
         buildGui();
     },
