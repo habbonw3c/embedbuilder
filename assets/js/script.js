@@ -7,7 +7,9 @@ window.addEventListener("message", function(event) {
     } else if (event.data.type === "json") {
       try {
           
-          console.log(JSON.parse(event.data.json))
+          console.log("Raw JSON string:", event.data.json);
+console.log("Escaped JSON string:", JSON.stringify(event.data.json));
+console.log("Character codes:", [...event.data.json].map(c => c.charCodeAt(0)));
         window.json = {"embeds":[{"description":"Showing last 20 logs as of {DATE(NOW) format=\"yyyy/MM/dd HH:mm:ss\"}\n\n{FOR 'Pay History'!A6:E25 AS log}**{log[2]}** <t:{DATE({log[4]}) format=\"unix\"}:R>\n-# Trans#{log[0]} {log[1]} <:credit:1367047522329169951> {log[3]}\n\n{/FOR:log}","color":16172079,"title":"Message with Google Sheets data","author":{"name":"Pay History Logs","icon_url":"https://habbo-ss.github.io/sscheduler/images/cropped-ss-logo.png"}}]};
       } catch (error) {
           console.error("Invalid JSON received:", error);
